@@ -1,7 +1,7 @@
 " NerdTree configuration
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && has('nvim') && !exists("s:std_in") | NERDTree | endif
 
 " CtrlP Configuration
 let g:ctrlp_clear_cache_on_exit = 1
@@ -68,7 +68,10 @@ let g:indent_guides_color_change_percent = 5
 let g:UltiSnipsEditSplit="vertical"
 
 " deoplete
-autocmd VimEnter * :UpdateRemotePlugin
+if has('nvim')
+	autocmd VimEnter * :UpdateRemotePlugin
+endif
+
 let g:deoplete#enable_at_startup = 1
 
 " greplace

@@ -42,7 +42,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/YankRing.vim'
 
 " autocomplete
-Plug 'Shougo/deoplete.nvim'
+if has('nvim')
+	Plug 'Shougo/deoplete.nvim'
+endif
 
 " Snippets
 Plug 'SirVer/ultisnips'
